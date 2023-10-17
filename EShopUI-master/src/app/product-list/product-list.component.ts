@@ -66,6 +66,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+
 import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
@@ -77,10 +78,10 @@ export class ProductListComponent implements OnInit {
   constructor(private productService: ProductServiceService, private http: HttpClient) { }
   
   displayedColumns: string[] = ['name', 'price', 'productcolor', 'available', 'producttype', 'specialtag', 'actions'];
-  dataSource: MatTableDataSource<any>; // Change data type to MatTableDataSource
+  dataSource:any; // Change data type to MatTableDataSource
 
   jsonInfo: any;
-  headerName: string[]; // Change to string[] for headerName
+  headerName: any; // Change to string[] for headerName
 
   public flag: boolean = false;
   public headerNameDialog: any;
@@ -88,26 +89,21 @@ export class ProductListComponent implements OnInit {
   productList: any;
 
   ngOnInit() {
-    // Assuming dataUrl is defined elsewhere in your code
-    this.http.get(dataUrl).subscribe((response) => {
-      this.jsonInfo = response; // Assign the response to jsonInfo
-      this.headerName = Object.keys(this.jsonInfo[0]); // Extract headers from the first item in the response
-      this.dataSource = new MatTableDataSource(this.jsonInfo); // Initialize the dataSource
+    this.productsList();
+  }
+
+  productsList() 
+  {
+    
+    this.productService.getProducts().subscribe(response => {
+      this.jsonInfo = response;
+      this.headerName = Object.keys(this.jsonInfo[0]);
+      this.dataSource = new MatTableDataSource(this.jsonInfo);
       console.log(this.headerName);
       console.log(typeof (this.headerName));
       console.log("json info", this.jsonInfo);
       console.log(typeof (this.jsonInfo));
       console.log("data source", this.dataSource);
     });
-  }
-
-  productsList() {
-    // Assuming you want to get products from a service
-    this.productService.getProducts().subscribe(
-      data => {
-        console.log(data);
-        this.productList = data; // Assign the data to productList
-      }
-    );
   }
 }
