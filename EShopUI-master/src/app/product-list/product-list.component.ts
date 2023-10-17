@@ -66,6 +66,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { response } from 'express';
 
 import { ProductServiceService } from '../services/product-service.service';
 
@@ -77,7 +78,7 @@ import { ProductServiceService } from '../services/product-service.service';
 export class ProductListComponent implements OnInit {
   constructor(private productService: ProductServiceService, private http: HttpClient) { }
   
-  displayedColumns: string[] = ['name', 'price', 'productColor', 'isAvailable', 'producttype', 'specialtag', 'actions'];
+  displayedColumns: string[] = ['name', 'price', 'productColor', 'isAvailable', 'ProductType', 'Name', 'actions'];
   dataSource:any; // Change data type to MatTableDataSource
 
   jsonInfo: any;
@@ -90,6 +91,21 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.productsList();
+    this.productsListId();
+  }
+
+  productsListId()
+  {
+    this.productService.getProductID().subscribe(response =>{
+      this.jsonInfo = response;
+      this.headerName = Object.keys(this.jsonInfo[0]);
+      this.dataSource = new MatTableDataSource(this.jsonInfo);
+      console.log(this.headerName);
+      console.log(typeof (this.headerName));
+      console.log("json info", this.jsonInfo);
+      console.log(typeof (this.jsonInfo));
+      console.log("data source", this.dataSource);
+    })
   }
 
   productsList() 
