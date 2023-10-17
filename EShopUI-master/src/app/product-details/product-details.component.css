@@ -1,0 +1,78 @@
+.mat-card {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width:80%;
+    background-color: whitesmoke;
+}
+
+.style-heading
+{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.center{
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;
+    height:60vh; 
+    
+    padding-top: 50px;
+}
+
+.custom-mat-form-field {
+    width: 300px;
+    padding-top: 5px;
+    gap: 5px;
+    background-color: whitesmoke;
+    border: 2px;   
+}
+  
+.card-image {
+    display: flex;
+    width: 70%;
+    height: 40%; 
+    justify-content: right;
+    align-content: right;
+
+  } 
+  
+.td-style{
+    height: fit-content;
+    width: fit-content;
+    justify-content: right;
+    align-items: right;
+}
+.button-align{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+/* .left-align
+{
+   display: flex;
+   justify-content: left;
+   align-items: left;
+
+}
+
+.center-align
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-align
+{
+   display: flex;
+   justify-content: right;
+   align-items: right;
+} */
+  
+  
+  

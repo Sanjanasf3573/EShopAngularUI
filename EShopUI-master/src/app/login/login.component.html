@@ -1,0 +1,33 @@
+
+<div class="center">
+
+<mat-card class="centered-card-container">
+<!-- <img [src]="imagePath" alt="Login Image" class="login-logo-size">  -->
+<h1 class="heading">Login</h1>
+<br>
+<form>
+<div [formGroup]="loginform">
+<mat-form-field class="example-full-width" appearance="fill">
+<mat-label>Email</mat-label>
+<input matInput placeholder="Enter your Email" name="email" formControlName ="email">
+</mat-form-field>
+<br>
+<mat-form-field class="example-full-width" appearance="fill">
+<mat-label>Password</mat-label>
+<input matInput placeholder="Enter your password" value="" name="password" type="password" formControlName= "password">
+</mat-form-field>
+<br>
+<mat-checkbox formControlName="isChecked">Remember me</mat-checkbox>
+<br><br>
+<div class= "inner-center">
+<button mat-raised-button color="primary" (click)="login()" [routerLink]="['/home']">Login</button>
+</div>
+<br><br>
+<a routerLink="/forgotpassword" class="inner-center">Forgot Password?</a><br>
+<a routerLink="/registration" class="inner-center">Register as a new user</a>
+<!-- <button mat-button color="accent" >Login success !!</button> -->
+</div>
+</form>
+</mat-card>
+
+</div>

@@ -1,0 +1,23 @@
+.center{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height:50vh; 
+}
+
+
+
+.textcenter{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.mat-card {
+  
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    width:40%;
+  }
+  

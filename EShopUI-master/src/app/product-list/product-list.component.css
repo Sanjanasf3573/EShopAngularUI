@@ -1,0 +1,20 @@
+.table-container {
+    width: 1000px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 30vh; 
+    padding-left: 135px;
+    padding-right: 400px;
+}
+
+.heading{
+  padding-left: 135px;
+}
+
+.addproduct-type{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 860px;
+}

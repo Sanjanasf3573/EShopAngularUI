@@ -1,0 +1,17 @@
+<app-navigation-bar></app-navigation-bar>
+<h2 class="textcenter">Add Special Tag Name</h2><br>
+<div class="center">
+    
+<mat-card class="mat-card">
+        <mat-form-field>
+          <input matInput placeholder="Name" name="name" value="">
+        </mat-form-field>
+        <br>
+        
+        <div class="textcenter">
+        <button mat-raised-button color="primary" (click)="save()">Save</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" [routerLink]="['/specialtaglist']">Back to List</button>
+      </div>
+  </mat-card>
+</div>
+

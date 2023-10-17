@@ -1,0 +1,35 @@
+<app-navigation-bar></app-navigation-bar>
+<h2 class="textcenter">Edit Product Details</h2><br>
+<div class="center">
+    
+<mat-card class="mat-card">
+        <mat-form-field>
+          <input matInput placeholder="Name" name="name" value="">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Price" name="price" value="">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Product Color" name="productcolor" value="">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Available" name="available" value="">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+           <input matInput placeholder="Product Type" name="producttype" value="">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Special Tag" name="specialtag" value="">
+        </mat-form-field>
+        <br>
+        <div class="textcenter">
+        <button mat-raised-button color="primary" (click)="update()">Update</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" [routerLink]="['/productlist']">Back to List</button>
+        </div>
+  </mat-card>
+</div>

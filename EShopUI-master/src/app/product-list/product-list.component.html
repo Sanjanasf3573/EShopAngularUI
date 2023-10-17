@@ -1,0 +1,63 @@
+<app-navigation-bar></app-navigation-bar>
+<br>
+<br>
+<h2 class="heading">Product List</h2>
+<div class="addproduct-type">
+<table>
+<td>
+     
+</td>
+<td><button mat-flat-button color="primary" [routerLink]="['/addproduct']">New Product</button></td>
+</table>
+</div>
+<br>
+<div class="table-container">
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+      </ng-container>
+      <ng-container matColumnDef="productcolor">
+        <th mat-header-cell *matHeaderCellDef>Product Color</th>
+        <td mat-cell *matCellDef="let element">{{ element.productcolor }}</td>
+      </ng-container>
+      <ng-container matColumnDef="available">
+        <th mat-header-cell *matHeaderCellDef>Available</th>
+        <td mat-cell *matCellDef="let element">{{ element.available }}</td>
+      </ng-container>
+      <ng-container matColumnDef="producttype">
+        <th mat-header-cell *matHeaderCellDef>Product Type</th>
+        <td mat-cell *matCellDef="let element">{{ element.producttype }}</td>
+      </ng-container>
+      <ng-container matColumnDef="specialtag">
+        <th mat-header-cell *matHeaderCellDef>Special Tag</th>
+        <td mat-cell *matCellDef="let element">{{ element.specialtag }}</td>
+      </ng-container>
+  
+
+    <ng-container matColumnDef="actions" class="position">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" [routerLink]="['/editproduct']">
+          <mat-icon>edit</mat-icon>
+        </button>
+      
+        <button mat-icon-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+</div>
+<button (click)="productsList()">Get Products</button>
+<router-outlet></router-outlet>

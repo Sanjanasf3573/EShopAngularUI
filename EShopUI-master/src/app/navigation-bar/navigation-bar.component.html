@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>ESHOP</span>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-flat-button color="primary" [routerLink]="['/home']">Home</button>
+     
+      <button *ngIf="isAdmin" mat-flat-button color="primary" [routerLink]="['/producttypelist']">Product Types</button>
+     
+      <button *ngIf="isAdmin" mat-flat-button color="primary" [routerLink]="['/specialtaglist']">Special Tag</button>
+     
+      <button *ngIf="isAdmin" mat-flat-button color="primary" [routerLink]="['/productlist']">Product</button>
+    
+      <button *ngIf="isAdmin" mat-flat-button color="primary" [routerLink]="['/userlist']">User Details</button>
+     
+      <button mat-flat-button color="primary" [routerLink]="['/cart']">Cart</button>
+      <span class="spacer"></span>
+      <!-- <span class="spacer">mailid</span> -->
+      <button mat-flat-button color="primary" [routerLink]="['/']">Hello! {{user}}</button>
+      <button mat-flat-button color="primary" [routerLink]="['/logout']">Logout</button>
+      
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <br><br>
+  <!-- <a [routerLink]="['/home/productdetails']">Go to ProductDetails</a> -->
+
+  

@@ -1,0 +1,69 @@
+.mat-card {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width:80%;
+    background-color: whitesmoke;
+}
+
+.style-heading
+{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.center{
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;
+    height:60vh; 
+    
+    padding-top: 50px;
+}
+
+.custom-mat-form-field {
+    width: 300px;
+    padding-top: 5px;
+    gap: 5px;
+    background-color: whitesmoke;
+    border: 2px;   
+}
+  
+.card-image {
+  
+    width: 20%;
+    height: 20%; 
+  } 
+  
+.td-style{
+    height: fit-content;
+    width: fit-content;
+    justify-content: right;
+    align-items: right;
+}
+.button-align{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.checkout
+{
+    float: right;
+}
+
+.checkout-div{
+    padding-right: 100px;
+}
+
+.amount{
+   
+    padding-left: 1000px;
+}
+
+.home-button{
+    float: right;
+    margin-right: 100px;
+}

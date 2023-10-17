@@ -1,0 +1,16 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="card-grid">
+    <mat-card *ngFor="let product of productCards" class="mat-card">
+       <h4 class="style-heading">{{product.description}}</h4>
+      <img [src]="product.imageUrl" alt="Product Image" class="card-image" />
+      <div class="card-details">
+        <div class="card-price">
+          <span>Price: {{ product.price | currency: 'INR':'symbol' }}</span>
+        </div>
+          <button mat-raised-button  [routerLink]="['/productdetails']"><mat-icon>shopping_cart</mat-icon></button>
+        </div>
+    </mat-card>
+  </div>
+  <!-- <app-product-details></app-product-details> -->
+  <router-outlet></router-outlet> 
+

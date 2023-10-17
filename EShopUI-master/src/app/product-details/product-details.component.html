@@ -1,0 +1,37 @@
+<app-navigation-bar></app-navigation-bar>
+<h4 class="style-heading">Product Details</h4>
+<div class="center">
+<mat-card class="mat-card">
+  <table>
+    <tr>
+      <td class="left-align">
+  <mat-form-field class="custom-mat-form-field mat-form-field-underline">
+    <input matInput [readonly]="true"  value="Name : {{name}}">
+  </mat-form-field><br>
+  <mat-form-field class="custom-mat-form-field">
+    <input matInput [readonly]="true" value="Price : {{price}}">
+  </mat-form-field><br>
+  <mat-form-field class="custom-mat-form-field">
+    <input matInput [readonly]="true" value="Product Color : {{productcolor}}">
+  </mat-form-field><br>
+  <mat-form-field class="custom-mat-form-field">
+    <input matInput [readonly]="true" value="Product Type : {{producttype}}">
+  </mat-form-field>
+  <mat-form-field class="custom-mat-form-field">
+    <input matInput [readonly]="true" value="Special Tag : {{specialtag}}">
+  </mat-form-field>
+  <mat-form-field class="custom-mat-form-field">
+    <input matInput [readonly]="true" value="Availability : {{availability}}">
+  </mat-form-field>
+  </td>
+  <td>
+    <img src="{{image}}" class="card-image">
+  </td>
+  </tr>
+  </table>
+  <div class="button-align">
+  <button mat-raised-button color="primary" [routerLink]="['/cart']">Add to Cart</button>&nbsp;&nbsp;
+  <button mat-raised-button color="primary" [routerLink]="['/home']">Back to List</button>
+</div>
+</mat-card>
+</div>

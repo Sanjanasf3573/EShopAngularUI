@@ -1,0 +1,36 @@
+<app-navigation-bar></app-navigation-bar>
+<br>
+<br>
+<h2 class="heading">Special Tag List</h2>
+<div class="addproduct-type">
+<button mat-flat-button color="primary" [routerLink]="['/addspecialtagname']">New Tag Name</button>
+</div>
+<br>
+<div class="table-container">
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+  
+
+    <ng-container matColumnDef="actions" class="position">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" [routerLink]="['/editspecialtagname']">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+</div>

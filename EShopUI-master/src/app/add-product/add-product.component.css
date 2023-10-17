@@ -1,0 +1,21 @@
+.center{
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;
+    height:50vh; 
+}
+
+.mat-card {
+  
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width:40%;
+   
+  }
+
+  .textcenter{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}

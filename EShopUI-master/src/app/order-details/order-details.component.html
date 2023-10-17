@@ -1,0 +1,38 @@
+<app-navigation-bar></app-navigation-bar>
+<h2 class="center">Order Details</h2>
+<div class="center">
+<mat-card class="size">
+    <div class="center">
+    <form>
+      
+        <mat-form-field>
+          <input matInput placeholder="Name" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Phone Number" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Address" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Email" type="email" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Order Date" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+ 
+      <br>
+     <div class="center">
+        <button mat-raised-button color="primary" (click)="placeOrder()">Place Order</button>
+    </div>
+   
+    </form>
+</div>
+  </mat-card>
+</div>

@@ -1,0 +1,30 @@
+.center{
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;
+    height:100vh; 
+}
+.centered-card-container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    height: 700px;
+    width:500px;
+    background-color: lightgray;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+.heading
+{
+    font-size: xx-large;
+    font-weight: 500;
+    color: navy;
+
+}
+
+.inner-center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
