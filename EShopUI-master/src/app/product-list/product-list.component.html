@@ -46,14 +46,16 @@
         <button mat-icon-button color="primary" [routerLink]="['/editproduct']">
           <mat-icon>edit</mat-icon>
         </button>
-<td>        <p name="productypeid" *matCellDef="let element">{{element.productypeid}}</p></td>
+
 
         <button mat-icon-button color="warn">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>
-
+<ng-container>
+  <td><p name="productypeid" *matCellDef="let element">{{element.productypeid}}</p></td>
+</ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
