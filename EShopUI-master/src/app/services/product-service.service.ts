@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 const getProductlist = "https://localhost:7018/api/Products"
-const getProductbyid = "https://localhost:7018/api/Products/id"
+const getProductbyid = "https://localhost:7018/api/ProductTypes"
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class ProductServiceService {
   }
   getProductID()
   {
-    console.log(this.http.get(getProductbyid)) 
+    console.log(this.http.get(`${getProductbyid}/${productTypeId}`))    
     return this.http.get(getProductbyid);
   }
 
