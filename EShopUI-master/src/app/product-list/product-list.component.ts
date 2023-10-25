@@ -84,7 +84,7 @@ export class ProductListComponent implements OnInit {
   jsonInfo: any;
   headerName: any; // Change to string[] for headerName
 
-  public flag: boolean = false;
+  
   public headerNameDialog: any;
   public result: any;
   productList: any;
