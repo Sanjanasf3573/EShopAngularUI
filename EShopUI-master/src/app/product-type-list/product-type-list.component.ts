@@ -10,7 +10,7 @@ import { ProductServiceService } from '../services/product-service.service';
 })
 export class ProductTypeListComponent {
   constructor(private productservice:ProductServiceService){}
-  displayedColumns: string[] = ['name', 'actions'];
+  displayedColumns: string[] = ['productType', 'actions'];
   dataSource : any;
   jsonInfo:any;
   headerName:any;
