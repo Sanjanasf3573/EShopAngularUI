@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 const getProductlist = "https://localhost:7018/api/Products"
-const getProductType = "https://localhost:7018/api/ProductTypes"
+const getProductType = "https://localhost:7018/api/ProductTypes"                        
 const getProductbyid = "https://localhost:7018/api"
 
 
