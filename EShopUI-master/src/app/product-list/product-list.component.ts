@@ -88,7 +88,7 @@ export class ProductListComponent implements OnInit {
   public headerNameDialog: any;
   public result: any;
   productList: any;
-
+  product: any;
   ngOnInit() {
     this.productsList();
     this.productsListId();
@@ -96,16 +96,24 @@ export class ProductListComponent implements OnInit {
 
   productsListId()
   {
-    this.productService.getProductID().subscribe(response =>{
-      this.jsonInfo = response;
-      this.headerName = Object.keys(this.jsonInfo[0]);
-      this.dataSource = new MatTableDataSource(this.jsonInfo);
-      console.log(this.headerName);
-      console.log(typeof (this.headerName));
-      console.log("json info", this.jsonInfo);
-      console.log(typeof (this.jsonInfo));
-      console.log("data source", this.dataSource);
-    })
+    const productid = 1; // Replace with the actual productid
+
+    this.productService.getProductById(productid).subscribe(data => {
+      this.product = data;
+      console.log('Product Data:', this.product);
+    });
+  
+    // this.productService.getProductID().subscribe(response =>{
+    //   this.jsonInfo = response;
+    //   this.headerName = Object.keys(this.jsonInfo[0]);
+    //   this.dataSource = new MatTableDataSource(this.jsonInfo);
+    //   console.log(this.headerName);
+    //   console.log(typeof (this.headerName));
+    //   console.log("json info", this.jsonInfo);
+    //   console.log(typeof (this.jsonInfo));
+    //   console.log("data source", this.dataSource);
+    // })
+
   }
 
   productsList() 
