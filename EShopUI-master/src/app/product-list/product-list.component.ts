@@ -94,6 +94,14 @@ export class ProductListComponent implements OnInit {
     this.productsListId();
   }
   productid = 1; // Replace with the actual productid
+  specialid = 1;
+  specialTagId()
+  {
+    this.productService.getProductBySpecialId(this.specialid).subscribe(data => {
+      this.product = data;
+      console.log('Product Data:', this.product);
+    });
+  }
 
   productsListId()
   {

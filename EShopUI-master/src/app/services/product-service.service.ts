@@ -34,4 +34,10 @@ export class ProductServiceService {
     return this.http.get(`${getProductbyid}/ProductTypes/${id}`);
   }
 
+  getProductBySpecialId(id: number): Observable<any>{
+    console.log(`${getProductbyid}/SpecialTags/${id}`);
+    return this.http.get(`${getProductbyid}/SpecialTags/${id}`);
+
+  }
+
 }
