@@ -32,8 +32,8 @@ export class ProductServiceService {
     //const url = `${getProductbyid}/ProductTypes/${id}`;
 
     // Make an HTTP GET request to the URL
-    console.log(`${getProductbyid}/ProductTypes/${id}`);
-    return this.http.get(`${getProductbyid}/ProductTypes/${id}`);
+    console.log(`${getProductType}/${id}`);
+    return this.http.get(`${getProductType}/${id}`);
   }
 
   getProductBySpecialId(id: number): Observable<any>{
