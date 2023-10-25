@@ -78,7 +78,7 @@ import { ProductServiceService } from '../services/product-service.service';
 export class ProductListComponent implements OnInit {
   constructor(private productService: ProductServiceService, private http: HttpClient) { }
   
-  displayedColumns: string[] = ['name', 'price', 'productColor', 'isAvailable', 'ProductType', 'Name', 'actions'];
+  displayedColumns: string[] = ['name', 'price', 'productColor', 'isAvailable', 'productType', 'Name', 'actions'];
   dataSource:any; // Change data type to MatTableDataSource
 
   jsonInfo: any;
