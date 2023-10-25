@@ -93,12 +93,12 @@ export class ProductListComponent implements OnInit {
     this.productsList();
     this.productsListId();
   }
+  productid = 1; // Replace with the actual productid
 
   productsListId()
   {
-    const productid = 1; // Replace with the actual productid
 
-    this.productService.getProductById(productid).subscribe(data => {
+    this.productService.getProductById(this.productid).subscribe(data => {
       this.product = data;
       console.log('Product Data:', this.product);
     });
