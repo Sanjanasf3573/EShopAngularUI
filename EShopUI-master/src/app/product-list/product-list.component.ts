@@ -99,7 +99,7 @@ export class ProductListComponent implements OnInit {
   {
     this.productService.getProductBySpecialId(this.specialid).subscribe(data => {
       this.product = data;
-      console.log('Product Data:', this.product);
+      console.log('Special Data:', this.product);
     });
   }
 
