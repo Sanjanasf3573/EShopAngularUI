@@ -27,10 +27,11 @@ export class ProductServiceService {
   // }
   getProductById(id: number): Observable<any> {
     // Construct the URL with the productid parameter
-    const url = `${getProductbyid}/ProductTypes/${id}`;
+    //const url = `${getProductbyid}/ProductTypes/${id}`;
 
     // Make an HTTP GET request to the URL
-    return this.http.get(url);
+    console.log(`${getProductbyid}/ProductTypes/${id}`);
+    return this.http.get(`${getProductbyid}/ProductTypes/${id}`);
   }
 
 }
