@@ -78,7 +78,7 @@ import { ProductServiceService } from '../services/product-service.service';
 export class ProductListComponent implements OnInit {
   constructor(private productService: ProductServiceService, private http: HttpClient) { }
   
-  displayedColumns: string[] = ['name', 'price', 'productColor', 'isAvailable', 'productType', 'Name', 'actions'];
+  displayedColumns: string[] = ['name', 'price', 'productColor', 'isAvailable', 'ProductType', 'Name', 'actions'];
   dataSource:any; // Change data type to MatTableDataSource
 
   jsonInfo: any;
@@ -91,7 +91,7 @@ export class ProductListComponent implements OnInit {
   product: any;
   ngOnInit() {
     this.productsList();
-    this.productsListId();
+    this.specialTagId();
   }
   productid = 1; // Replace with the actual productid
   specialid = 1;
