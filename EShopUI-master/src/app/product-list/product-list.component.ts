@@ -103,12 +103,13 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  productsListId()
+  productsListId(productTypeId: any)
   {
 
-    this.productService.getProductById(this.productid).subscribe(data => {
+    this.productService.getProductById(productTypeId).subscribe(data => {
       this.product = data;
       console.log('Product Data:', this.product);
+      return "abc";
     });
   
     // this.productService.getProductID().subscribe(response =>{
