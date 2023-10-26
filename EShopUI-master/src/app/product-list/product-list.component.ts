@@ -19,7 +19,12 @@ export class ProductListComponent implements OnInit {
   jsonInfo: any;
   headerName: any; // Change to string[] for headerName
 
-  
+  dataSourceFirstTable :any;
+  dataSourceSecondTable : any;
+  dataSourceThirdTable :any;
+  mergedTable:any;
+  mergedDataSource :any;
+
   public headerNameDialog: any;
   public result: any;
   productList: any;
@@ -28,7 +33,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.productsList();
     this.productsListId(this.productid);
-    this.productTypeList();
+    //this.productTypeList();
   
   }
   productid = 1; // Replace with the actual productid
@@ -60,30 +65,37 @@ export class ProductListComponent implements OnInit {
   {
     
     this.productService.getProducts().subscribe(response => {
+      
+      
       this.jsonInfo = response;
       this.headerName = Object.keys(this.jsonInfo[0]);
-      this.dataSource = new MatTableDataSource(this.jsonInfo);
+      this.dataSourceFirstTable = new MatTableDataSource(this.jsonInfo);
       console.log(this.headerName);
       console.log(typeof (this.headerName));
       console.log("json info", this.jsonInfo);
       console.log(typeof (this.jsonInfo));
       console.log("data source", this.dataSource);
     });
-  }
-  productTypeList()
-  {
+
     this.productService.getProductTypes().subscribe(response=>{
       this.jsonInfo = response;
       this.headerName = Object.keys(this.jsonInfo[0]);
-      this.dataSource = new MatTableDataSource(this.jsonInfo);
+      this.dataSourceSecondTable = new MatTableDataSource(this.jsonInfo);
       console.log(this.headerName);
       console.log(typeof (this.headerName));
       console.log("product type list json info", this.jsonInfo);
       console.log(typeof (this.jsonInfo));
       console.log("product type list data source", this.dataSource);
     });
- 
+    this.mergedTable = [this.dataSourceFirstTable,this.dataSourceSecondTable];
+    
+    this.mergedDataSource = new MatTableDataSource(this.mergedTable);
+
+
   }
+   
+  
+  
 }
 
 // import { HttpClient } from '@angular/common/http';
