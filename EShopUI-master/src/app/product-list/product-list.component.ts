@@ -11,13 +11,17 @@ import { ProductServiceService } from '../services/product-service.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  constructor(private productService: ProductServiceService, private http: HttpClient) { }
+  constructor(private productService: ProductServiceService) { }
   
   displayedColumns: string[] = ['name', 'price', 'productColor', 'isAvailable', 'productType', 'SpecialTagName', 'actions'];
   dataSource:any; // Change data type to MatTableDataSource
 
-  jsonInfo: any;
-  headerName: any; // Change to string[] for headerName
+  jsonInfoFirstTable: any;
+  jsonInfoSecondTable: any;
+  jsonInfoThirdTable: any;
+  headerName1: any;
+  headerName2: any;
+  headerName3: any;
 
   dataSourceFirstTable :any;
   dataSourceSecondTable : any;
@@ -25,8 +29,6 @@ export class ProductListComponent implements OnInit {
   mergedTable:any;
   mergedDataSource :any;
 
-  public headerNameDialog: any;
-  public result: any;
   productList: any;
   product: any;
   specialtaglist :any;
@@ -67,27 +69,38 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe(response => {
       
       
-      this.jsonInfo = response;
-      this.headerName = Object.keys(this.jsonInfo[0]);
-      this.dataSourceFirstTable = new MatTableDataSource(this.jsonInfo);
-      console.log(this.headerName);
-      console.log(typeof (this.headerName));
-      console.log("json info", this.jsonInfo);
-      console.log(typeof (this.jsonInfo));
+      this.jsonInfoFirstTable = response;
+      this.headerName1 = Object.keys(this.jsonInfoFirstTable[0]);
+      this.dataSourceFirstTable = new MatTableDataSource(this.jsonInfoFirstTable);
+      console.log(this.headerName1);
+      console.log(typeof (this.headerName1));
+      console.log("json info", this.jsonInfoFirstTable);
+      console.log(typeof (this.jsonInfoFirstTable));
       console.log("data source", this.dataSource);
     });
 
     this.productService.getProductTypes().subscribe(response=>{
-      this.jsonInfo = response;
-      this.headerName = Object.keys(this.jsonInfo[0]);
-      this.dataSourceSecondTable = new MatTableDataSource(this.jsonInfo);
-      console.log(this.headerName);
-      console.log(typeof (this.headerName));
-      console.log("product type list json info", this.jsonInfo);
-      console.log(typeof (this.jsonInfo));
+      this.jsonInfoSecondTable = response;
+      this.headerName2 = Object.keys(this.jsonInfoSecondTable[0]);
+      this.dataSourceSecondTable = new MatTableDataSource(this.jsonInfoSecondTable);
+      console.log(this.headerName2);
+      console.log(typeof (this.headerName2));
+      console.log("product type list json info", this.jsonInfoSecondTable);
+      console.log(typeof (this.jsonInfoSecondTable));
       console.log("product type list data source", this.dataSource);
     });
-    this.mergedTable = [this.dataSourceFirstTable,this.dataSourceSecondTable];
+    this.productService.getSpecialTags().subscribe(response=>{
+      this.jsonInfoThirdTable = response;
+      this.headerName3 = Object.keys(this.jsonInfoThirdTable[0]);
+      this.dataSourceThirdTable = new MatTableDataSource(this.jsonInfoThirdTable);
+      console.log(this.headerName3);
+      console.log(typeof (this.headerName3));
+      console.log("special tag list json info", this.jsonInfoThirdTable);
+      console.log(typeof (this.jsonInfoThirdTable));
+      console.log("special tag list data source", this.dataSource);
+    });
+
+    this.mergedTable = [this.dataSourceFirstTable,this.dataSourceSecondTable,this.dataSourceThirdTable];
     
     this.mergedDataSource = new MatTableDataSource(this.mergedTable);
 
