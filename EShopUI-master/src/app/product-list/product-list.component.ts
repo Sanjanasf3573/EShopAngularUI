@@ -26,7 +26,6 @@ export class ProductListComponent implements OnInit {
   dataSourceFirstTable :any;
   dataSourceSecondTable : any;
   dataSourceThirdTable :any;
-  mergedTable:any;
   mergedDataSource :any;
 
   productList: any;
@@ -102,9 +101,9 @@ export class ProductListComponent implements OnInit {
       console.log("special tag list data source", this.dataSource);
     });
 
-    this.mergedTable = [this.jsonInfoFirstTable,this.jsonInfoSecondTable,this.jsonInfoThirdTable];
+    const mergedTable = [this.jsonInfoFirstTable.data,this.jsonInfoSecondTable.data,this.jsonInfoThirdTable.data];
     
-    this.mergedDataSource = new MatTableDataSource(this.mergedTable);
+    this.mergedDataSource = new MatTableDataSource(mergedTable);
 
     console.log("Merged source",this.mergedDataSource);
 
