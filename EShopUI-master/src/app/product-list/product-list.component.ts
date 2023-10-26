@@ -91,6 +91,8 @@ export class ProductListComponent implements OnInit {
     
     this.mergedDataSource = new MatTableDataSource(this.mergedTable);
 
+    console.log("Merged source",this.mergedDataSource);
+
 
   }
    
