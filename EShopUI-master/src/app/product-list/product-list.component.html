@@ -33,7 +33,8 @@
       </ng-container>
       <ng-container matColumnDef="ProductType">
         <th mat-header-cell *matHeaderCellDef>Product Type</th>
-        <td mat-cell *matCellDef="let element">{{ productsListId(element.ProductTypeId) }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.ProductTypeId }}</td>
+        <!-- <td mat-cell *matCellDef="let element">{{ productsListId(element.ProductTypeId) }}</td> -->
       </ng-container>
       <ng-container matColumnDef="Name">
         <th mat-header-cell *matHeaderCellDef>Special Tag</th>

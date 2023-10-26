@@ -1,3 +1,83 @@
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { response } from 'express';
+
+import { ProductServiceService } from '../services/product-service.service';
+
+@Component({
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
+})
+export class ProductListComponent implements OnInit {
+  constructor(private productService: ProductServiceService, private http: HttpClient) { }
+  
+  displayedColumns: string[] = ['name', 'price', 'productColor', 'isAvailable', 'ProductType', 'Name', 'actions'];
+  dataSource:any; // Change data type to MatTableDataSource
+
+  jsonInfo: any;
+  headerName: any; // Change to string[] for headerName
+
+  
+  public headerNameDialog: any;
+  public result: any;
+  productList: any;
+  product: any;
+  specialtaglist :any;
+  ngOnInit() {
+    this.productsList();
+    this.productsListId(this.productid);
+    this.specialTagId();
+  }
+  productid = 1; // Replace with the actual productid
+  specialid = 1;
+  specialTagId()
+  {
+    this.productService.getProductBySpecialId(this.specialid).subscribe(data => {
+      this.specialtaglist = data;
+      console.log('Special Data:', this.specialtaglist);
+    });
+  }
+
+  productsListId(productTypeId: any)
+  {
+
+    this.productService.getProductById(productTypeId).subscribe(data => {
+      this.product = data;
+      console.log('Product Data:', this.product);
+      return "abc";
+    });
+  
+    // this.productService.getProductID().subscribe(response =>{
+    //   this.jsonInfo = response;
+    //   this.headerName = Object.keys(this.jsonInfo[0]);
+    //   this.dataSource = new MatTableDataSource(this.jsonInfo);
+    //   console.log(this.headerName);
+    //   console.log(typeof (this.headerName));
+    //   console.log("json info", this.jsonInfo);
+    //   console.log(typeof (this.jsonInfo));
+    //   console.log("data source", this.dataSource);
+    // })
+
+  }
+
+  productsList() 
+  {
+    
+    this.productService.getProducts().subscribe(response => {
+      this.jsonInfo = response;
+      this.headerName = Object.keys(this.jsonInfo[0]);
+      this.dataSource = new MatTableDataSource(this.jsonInfo);
+      console.log(this.headerName);
+      console.log(typeof (this.headerName));
+      console.log("json info", this.jsonInfo);
+      console.log(typeof (this.jsonInfo));
+      console.log("data source", this.dataSource);
+    });
+  }
+}
+
 // import { HttpClient } from '@angular/common/http';
 // import { Component } from '@angular/core';
 // import { MatTableDataSource } from '@angular/material/table';
@@ -63,80 +143,3 @@
   
   
 // }
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { response } from 'express';
-
-import { ProductServiceService } from '../services/product-service.service';
-
-@Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
-})
-export class ProductListComponent implements OnInit {
-  constructor(private productService: ProductServiceService, private http: HttpClient) { }
-  
-  displayedColumns: string[] = ['name', 'price', 'productColor', 'isAvailable', 'ProductType', 'Name', 'actions'];
-  dataSource:any; // Change data type to MatTableDataSource
-
-  jsonInfo: any;
-  headerName: any; // Change to string[] for headerName
-
-  
-  public headerNameDialog: any;
-  public result: any;
-  productList: any;
-  product: any;
-  ngOnInit() {
-    this.productsList();
-    this.specialTagId();
-  }
-  productid = 1; // Replace with the actual productid
-  specialid = 1;
-  specialTagId()
-  {
-    this.productService.getProductBySpecialId(this.specialid).subscribe(data => {
-      this.product = data;
-      console.log('Special Data:', this.product);
-    });
-  }
-
-  productsListId(productTypeId: any)
-  {
-
-    this.productService.getProductById(productTypeId).subscribe(data => {
-      this.product = data;
-      console.log('Product Data:', this.product);
-      return "abc";
-    });
-  
-    // this.productService.getProductID().subscribe(response =>{
-    //   this.jsonInfo = response;
-    //   this.headerName = Object.keys(this.jsonInfo[0]);
-    //   this.dataSource = new MatTableDataSource(this.jsonInfo);
-    //   console.log(this.headerName);
-    //   console.log(typeof (this.headerName));
-    //   console.log("json info", this.jsonInfo);
-    //   console.log(typeof (this.jsonInfo));
-    //   console.log("data source", this.dataSource);
-    // })
-
-  }
-
-  productsList() 
-  {
-    
-    this.productService.getProducts().subscribe(response => {
-      this.jsonInfo = response;
-      this.headerName = Object.keys(this.jsonInfo[0]);
-      this.dataSource = new MatTableDataSource(this.jsonInfo);
-      console.log(this.headerName);
-      console.log(typeof (this.headerName));
-      console.log("json info", this.jsonInfo);
-      console.log(typeof (this.jsonInfo));
-      console.log("data source", this.dataSource);
-    });
-  }
-}
