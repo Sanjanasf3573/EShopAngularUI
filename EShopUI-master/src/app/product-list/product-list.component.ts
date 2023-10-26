@@ -63,6 +63,8 @@ export class ProductListComponent implements OnInit {
 
   }
 
+  
+
   productsList() 
   {
     
@@ -71,7 +73,7 @@ export class ProductListComponent implements OnInit {
       
       this.jsonInfoFirstTable = response;
       this.headerName1 = Object.keys(this.jsonInfoFirstTable[0]);
-      this.dataSourceFirstTable = new MatTableDataSource(this.jsonInfoFirstTable);
+      //this.dataSourceFirstTable = new MatTableDataSource(this.jsonInfoFirstTable);
       console.log(this.headerName1);
       console.log(typeof (this.headerName1));
       console.log("json info", this.jsonInfoFirstTable);
@@ -82,7 +84,7 @@ export class ProductListComponent implements OnInit {
     this.productService.getProductTypes().subscribe(response=>{
       this.jsonInfoSecondTable = response;
       this.headerName2 = Object.keys(this.jsonInfoSecondTable[0]);
-      this.dataSourceSecondTable = new MatTableDataSource(this.jsonInfoSecondTable);
+      
       console.log(this.headerName2);
       console.log(typeof (this.headerName2));
       console.log("product type list json info", this.jsonInfoSecondTable);
@@ -92,7 +94,7 @@ export class ProductListComponent implements OnInit {
     this.productService.getSpecialTags().subscribe(response=>{
       this.jsonInfoThirdTable = response;
       this.headerName3 = Object.keys(this.jsonInfoThirdTable[0]);
-      this.dataSourceThirdTable = new MatTableDataSource(this.jsonInfoThirdTable);
+      
       console.log(this.headerName3);
       console.log(typeof (this.headerName3));
       console.log("special tag list json info", this.jsonInfoThirdTable);
@@ -100,7 +102,7 @@ export class ProductListComponent implements OnInit {
       console.log("special tag list data source", this.dataSource);
     });
 
-    this.mergedTable = [this.dataSourceFirstTable,this.dataSourceSecondTable,this.dataSourceThirdTable];
+    this.mergedTable = [this.jsonInfoFirstTable,this.jsonInfoSecondTable,this.jsonInfoThirdTable];
     
     this.mergedDataSource = new MatTableDataSource(this.mergedTable);
 
