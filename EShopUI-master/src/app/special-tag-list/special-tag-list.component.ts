@@ -7,11 +7,21 @@ import { Component } from '@angular/core';
 })
 export class SpecialTagListComponent {
   displayedColumns: string[] = ['name', 'actions'];
+  //  this.specialTagId();
   dataSource = [
     { name: 'Deal of the day' },
     { name: 'Discount' },
     { name: 'MRP' }
     
   ];
+
+  // specialTagId()
+  // {
+  //   this.productService.getProductBySpecialId(this.specialid).subscribe(data => {
+  //     this.specialtaglist = data;
+  //     console.log('Special Data:', this.specialtaglist);
+  //   });
+  // }
+
 
 }

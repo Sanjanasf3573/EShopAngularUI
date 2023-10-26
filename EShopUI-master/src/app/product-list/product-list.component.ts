@@ -28,18 +28,11 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.productsList();
     this.productsListId(this.productid);
-    this.specialTagId();
+  
   }
   productid = 1; // Replace with the actual productid
   specialid = 1;
-  specialTagId()
-  {
-    this.productService.getProductBySpecialId(this.specialid).subscribe(data => {
-      this.specialtaglist = data;
-      console.log('Special Data:', this.specialtaglist);
-    });
-  }
-
+ 
   productsListId(productTypeId: any)
   {
 

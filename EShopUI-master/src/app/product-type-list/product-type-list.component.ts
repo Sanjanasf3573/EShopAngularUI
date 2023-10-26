@@ -10,6 +10,10 @@ import { ProductServiceService } from '../services/product-service.service';
 })
 export class ProductTypeListComponent {
   constructor(private productservice:ProductServiceService){}
+  ngOnInit()
+  {
+    this.productTypeList();
+  }
   displayedColumns: string[] = ['productType', 'actions'];
   dataSource : any;
   jsonInfo:any;
