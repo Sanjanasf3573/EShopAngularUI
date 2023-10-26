@@ -23,9 +23,9 @@ export class ProductTypeListComponent {
       this.dataSource = new MatTableDataSource(this.jsonInfo);
       console.log(this.headerName);
       console.log(typeof (this.headerName));
-      console.log("json info", this.jsonInfo);
+      console.log("product type list json info", this.jsonInfo);
       console.log(typeof (this.jsonInfo));
-      console.log("data source", this.dataSource);
+      console.log("product type list data source", this.dataSource);
     });
 
   }
