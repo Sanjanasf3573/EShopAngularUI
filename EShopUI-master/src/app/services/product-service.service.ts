@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 const getProductlist = "https://localhost:7018/api/Products"
 const getProductType = "https://localhost:7018/api/ProductTypes"                        
 const getProductbyid = "https://localhost:7018/api"
-
+const getSpecialTag = "https://localhost:7018/api/SpecialTags"  
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +53,12 @@ export class ProductServiceService {
   {
     console.log(this.http.get(getProductType))
     return this.http.get(getProductType);    
+  }
+
+  getSpecialTags()
+  {
+    console.log(this.http.get(getSpecialTag))
+    return this.http.get(getSpecialTag);    
   }
 
 }
