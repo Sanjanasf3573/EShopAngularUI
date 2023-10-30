@@ -29,7 +29,7 @@ export class SpecialTagListComponent {
   {
     this.specialTagList();
   }
-  displayedColumns: string[] = ['name', 'actions'];
+  displayedColumns: string[] = ['specialTagName', 'actions'];
   dataSource : any;
   jsonInfo:any;
   headerName:any;
