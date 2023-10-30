@@ -77,7 +77,7 @@ export class ProductListComponent implements OnInit {
       console.log(typeof (this.headerName1));
       console.log("json info", this.jsonInfoFirstTable);
       console.log(typeof (this.jsonInfoFirstTable));
-      console.log("data source", this.dataSource);
+      console.log("data source 1", this.dataSourceFirstTable);
     });
 
     this.productService.getProductTypes().subscribe(response=>{
@@ -88,7 +88,7 @@ export class ProductListComponent implements OnInit {
       console.log(typeof (this.headerName2));
       console.log("product type list json info", this.jsonInfoSecondTable);
       console.log(typeof (this.jsonInfoSecondTable));
-      console.log("product type list data source", this.dataSource);
+      console.log("product type list data source", this.dataSourceSecondTable);
     });
     this.productService.getSpecialTags().subscribe(response=>{
       this.jsonInfoThirdTable = response;
@@ -98,11 +98,10 @@ export class ProductListComponent implements OnInit {
       console.log(typeof (this.headerName3));
       console.log("special tag list json info", this.jsonInfoThirdTable);
       console.log(typeof (this.jsonInfoThirdTable));
-      console.log("special tag list data source", this.dataSource);
+      console.log("special tag list data source", this.dataSourceThirdTable);
     });
 
-    const mergedTable = [this.dataSourceFirstTable.data,this.dataSourceSecondTable.data,this.dataSourceThirdTable.data];
-    
+    const mergedTable = [this.jsonInfoFirstTable, this.jsonInfoSecondTable,       this.jsonInfoThirdTable    ];    
     this.mergedDataSource = new MatTableDataSource(mergedTable);
 
     console.log("Merged source",this.mergedDataSource);
