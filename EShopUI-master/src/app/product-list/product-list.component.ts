@@ -12,7 +12,7 @@ import { forkJoin } from 'rxjs';
 export class ProductListComponent implements OnInit {
   constructor(private productService: ProductServiceService) { }
   
-  displayedColumns: string[] = ['name', 'price', 'productColor', 'isAvailable', 'productType', 'Name', 'actions'];
+  displayedColumns: string[] = ['name', 'price', 'productColor', 'isAvailable', 'productType', 'SpecialTagName', 'actions'];
   dataSource!: MatTableDataSource<any>;
 
   jsonInfoFirstTable: any;
@@ -59,7 +59,7 @@ export class ProductListComponent implements OnInit {
         productColor: this.jsonInfoFirstTable[i].productColor,
         isAvailable: this.jsonInfoFirstTable[i].isAvailable,
         productType: this.jsonInfoSecondTable[i].productType,
-        Name: this.jsonInfoThirdTable[i].Name
+        SpecialTagName: this.jsonInfoThirdTable[i].SpecialTagName
       });
     }
 
