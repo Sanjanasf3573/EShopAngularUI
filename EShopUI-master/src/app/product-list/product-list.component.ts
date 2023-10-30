@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProductServiceService } from '../services/product-service.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -23,30 +24,42 @@ export class ProductListComponent implements OnInit {
   }
 
   productsList() {
-    this.productService.getProducts().subscribe(response => {
-      this.jsonInfoFirstTable = response;
-      this.productService.getProductTypes().subscribe(response => {
-        this.jsonInfoSecondTable = response;
-        this.productService.getSpecialTags().subscribe(response => {
-          this.jsonInfoThirdTable = response;
-          this.combineDataSources();
-        });
-      });
+    const products$ = this.productService.getProducts();
+    const productTypes$ = this.productService.getProductTypes();
+    const specialTags$ = this.productService.getSpecialTags();
+
+    forkJoin([products$, productTypes$, specialTags$]).subscribe((responses) => {
+      this.jsonInfoFirstTable = responses[0];
+      this.jsonInfoSecondTable = responses[1];
+      this.jsonInfoThirdTable = responses[2];
+
+      this.combineDataSources();
     });
   }
 
   combineDataSources() {
-    // Check if all data sources have been fetched
-    if (this.jsonInfoFirstTable && this.jsonInfoSecondTable && this.jsonInfoThirdTable) {
-      const mergedData = this.mergeData(this.jsonInfoFirstTable.name,this.jsonInfoFirstTable.price, this.jsonInfoFirstTable.productColor,this.jsonInfoFirstTable.isAvailable,
-                                        this.jsonInfoSecondTable.productType, this.jsonInfoThirdTable.SpecialTagName);
-      this.dataSource = new MatTableDataSource(mergedData);
-    }
+    const mergedData = this.mergeData();
+    this.dataSource = new MatTableDataSource(mergedData);
   }
 
-  mergeData(data1:any, data2:any, data3:any,data4:any,data5:any,data6:any) {
+  mergeData() {
     // Implement your logic to merge the data from data1, data2, and data3
-    // For example, you can concatenate arrays or perform other merging operations
-    return [data1,data2,data3,data4,data5,data6];
+    // Construct an array of objects where each object represents a row of data
+    // with columns that correspond to the columns in your MatTable.
+
+    const mergedData = [];
+
+    for (let i = 0; i < this.jsonInfoFirstTable.length; i++) {
+      mergedData.push({
+        name: this.jsonInfoFirstTable[i].name,
+        price: this.jsonInfoFirstTable[i].price,
+        productColor: this.jsonInfoFirstTable[i].productColor,
+        isAvailable: this.jsonInfoFirstTable[i].isAvailable,
+        productType: this.jsonInfoSecondTable[i].productType,
+        SpecialTagName: this.jsonInfoThirdTable[i].SpecialTagName,
+      });
+    }
+
+    return mergedData;
   }
 }
