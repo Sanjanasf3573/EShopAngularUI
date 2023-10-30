@@ -67,7 +67,7 @@ export class ProductListComponent implements OnInit {
       });
     }
 
-    for(let k=0;k<this.jsonInfoSecondTable.length;k++)
+    for(let k=0;k<this.jsonInfoThirdTable.length;k++)
     {
       mergedData.push({
         Name: this.jsonInfoThirdTable[k].Name,
