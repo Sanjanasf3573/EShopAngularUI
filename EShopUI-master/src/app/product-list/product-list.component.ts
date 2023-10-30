@@ -42,6 +42,7 @@ export class ProductListComponent implements OnInit {
   combineDataSources() {
     const mergedData = this.mergeData();
     this.dataSource = new MatTableDataSource(mergedData);
+    console.log("combinedData",this.dataSource.data)
   }
 
   mergeData() {
