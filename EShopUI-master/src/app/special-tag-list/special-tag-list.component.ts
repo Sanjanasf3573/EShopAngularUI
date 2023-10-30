@@ -49,4 +49,9 @@ export class SpecialTagListComponent {
 
   }
 
+  deleteSpecialTag()
+  {
+    
+  }
+
 }

@@ -28,18 +28,13 @@ export class ProductServiceService {
   //   return this.http.get(getProductbyid);
   // }
   getProductById(id: number): Observable<any> {
-    // Construct the URL with the productid parameter
-    //const url = `${getProductbyid}/ProductTypes/${id}`;
-
-    // Make an HTTP GET request to the URL
+   
     if (id === undefined) {
       // Handle the case where id is undefined
       console.error('Product ID is undefined. Cannot make the request.');
       // return null; // You might return an observable with an error message or any other desired behavior.
     }
   
-
-   // console.log(`${getProductType}/${id}`);
     return this.http.get(`${getProductType}/${id}`);
   }
 
@@ -47,6 +42,10 @@ export class ProductServiceService {
    // console.log(`${getProductbyid}/SpecialTags/${id}`);
     return this.http.get(`${getProductbyid}/SpecialTags/${id}`);
 
+  }
+
+  deleteSpecialTagById(id:number):Observable<any>{
+    return this.http.delete(`${getProductbyid}/SpecialTags/${id}`)
   }
 
   getProductTypes()
