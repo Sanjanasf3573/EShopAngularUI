@@ -38,14 +38,15 @@ export class ProductListComponent implements OnInit {
   combineDataSources() {
     // Check if all data sources have been fetched
     if (this.jsonInfoFirstTable && this.jsonInfoSecondTable && this.jsonInfoThirdTable) {
-      const mergedData = this.mergeData(this.jsonInfoFirstTable, this.jsonInfoSecondTable, this.jsonInfoThirdTable);
+      const mergedData = this.mergeData(this.jsonInfoFirstTable.name,this.jsonInfoFirstTable.price, this.jsonInfoFirstTable.productColor,this.jsonInfoFirstTable.isAvailable,
+                                        this.jsonInfoSecondTable.productType, this.jsonInfoThirdTable.SpecialTagName);
       this.dataSource = new MatTableDataSource(mergedData);
     }
   }
 
-  mergeData(data1:any, data2:any, data3:any) {
+  mergeData(data1:any, data2:any, data3:any,data4:any,data5:any,data6:any) {
     // Implement your logic to merge the data from data1, data2, and data3
     // For example, you can concatenate arrays or perform other merging operations
-    return [data1,data2,data3];
+    return [data1,data2,data3,data4,data5,data6];
   }
 }
