@@ -55,8 +55,22 @@ export class ProductListComponent implements OnInit {
         price: this.jsonInfoFirstTable[i].price,
         productColor: this.jsonInfoFirstTable[i].productColor,
         isAvailable: this.jsonInfoFirstTable[i].isAvailable,
-        productType: this.jsonInfoSecondTable[i].productType,
-        SpecialTagName: this.jsonInfoThirdTable[i].SpecialTagName,
+        //productType: this.jsonInfoSecondTable[i].productType,
+        //Name: this.jsonInfoThirdTable[i].Name,
+      });
+    }
+
+    for(let j=0;j<this.jsonInfoSecondTable.length;j++)
+    {
+      mergedData.push({
+        productType: this.jsonInfoSecondTable[j].productType,
+      });
+    }
+
+    for(let k=0;k<this.jsonInfoSecondTable.length;k++)
+    {
+      mergedData.push({
+        Name: this.jsonInfoThirdTable[k].Name,
       });
     }
 
